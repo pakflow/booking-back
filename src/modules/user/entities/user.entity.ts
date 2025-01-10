@@ -20,8 +20,12 @@ export class User {
   @Column()
   name: string;
 
-  @Column({ default: 'user' }) // Роли (user, admin)
-  role: string;
+  @Column({
+    type: 'enum',
+    enum: ['admin', 'user', 'superadmin'],
+    default: 'user',
+  }) // Роли (user, admin, superadmin)
+  role: UserRole;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -29,3 +33,5 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date;
 }
+
+export type UserRole = 'superadmin' | 'admin' | 'user';
