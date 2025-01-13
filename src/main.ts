@@ -11,8 +11,14 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors({
+    origin: 'http://localhost:3000', // Разрешённый источник
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', // Разрешённые HTTP-методы
+    credentials: true, // Если вы используете cookies или заголовки Authorization
+  });
+
   app.setGlobalPrefix('api/v1'); // Здесь "v1" — версия API
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 5471);
 }
 bootstrap();
