@@ -12,7 +12,7 @@ async function bootstrap() {
   );
 
   app.enableCors({
-    origin: 'http://localhost:3000', // Разрешённый источник
+    origin: 'http://localhost:7777', // Разрешённый источник
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', // Разрешённые HTTP-методы
     credentials: true, // Если вы используете cookies или заголовки Authorization
   });
